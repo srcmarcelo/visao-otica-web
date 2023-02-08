@@ -28,6 +28,7 @@ export default function RegistrationForm() {
         alignItems: 'center',
         marginBottom: '40px',
         width: '80%',
+        color: 'white',
       }}
       rules={[
         {
@@ -72,6 +73,7 @@ export default function RegistrationForm() {
           alignItems: 'center',
           margin: '40px',
           width: '80%',
+          color: 'white',
         }}
       >
         <Radio.Group
@@ -79,20 +81,21 @@ export default function RegistrationForm() {
             display: 'flex',
             flexDirection: 'column',
             paddingTop: '10px',
+            color: 'white',
           }}
         >
-          <Radio style={{ marginBottom: '10px' }} value={1}>
+          <Radio style={{ marginBottom: '10px', color: 'white' }} value={1}>
             {' À vista'}
           </Radio>
-          <Radio style={{ marginBottom: '10px' }} value={2}>
+          <Radio style={{ marginBottom: '10px', color: 'white' }} value={2}>
             {' '}
             Parcelado
           </Radio>
-          <Radio style={{ marginBottom: '10px' }} value={3}>
+          <Radio style={{ marginBottom: '10px', color: 'white' }} value={3}>
             {' '}
             Cartão
           </Radio>
-          <Radio style={{ marginBottom: '10px' }} value={4}>
+          <Radio style={{ marginBottom: '10px', color: 'white' }} value={4}>
             {' '}
             Crediário
           </Radio>
