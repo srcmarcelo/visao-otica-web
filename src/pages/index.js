@@ -18,22 +18,6 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>Ficha cadastral de clientes - Visão Ótica</p>
-          {/* <div>
-            <a
-              href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <Image
-                src='/logo.png'
-                alt='Vercel Logo'
-                className={styles.vercelLogo}
-                width={300}
-                height={100}
-                priority
-              />
-            </a>
-          </div> */}
         </div>
 
         <div
