@@ -133,7 +133,7 @@ export default function RegistrationForm() {
       <RenderItem label='Cidade' name='city' />
       <RenderItem label='Estado' name='state' />
       <RenderItem label='Ponto de referência' name='ref_site' />
-      {/* <RenderItem label='Contato Fixo' name='telephone' />
+      <RenderItem label='Contato Fixo' name='telephone' />
       <RenderItem label='Contato Móvel' name='cellphone' />
       <RenderItem label='CPF' name='cpf' />
       <RenderItem label='RG' name='rg' />
@@ -143,7 +143,7 @@ export default function RegistrationForm() {
       <RenderItem label='Filiação' name='parents' />
       <RenderItem label='Email' name='email' />
       <RenderItem label='Instagram' name='instagram' />
-      <RenderItem label='Facebook' name='facebook' /> */}
+      <RenderItem label='Facebook' name='facebook' />
       {/* <div>DADOS DA VENDA</div>
       <RenderItem label='Valor' name='value' />
       <RenderRadioGroupItem
