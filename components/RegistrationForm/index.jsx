@@ -7,11 +7,13 @@ export default function RegistrationForm() {
   const onFinish = async (values) => {
     const pdf = await CreatePDF(values);
 
+    const names = values.costumer.split(' ');
+
     const blob = new Blob([pdf, { type: 'application/octet-stream' }]);
     const urlDownload = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = urlDownload;
-    a.download = 'exemplo.pdf';
+    a.download = `${names[0]}_${values.cpf}.pdf`;
     a.click();
 
     setTimeout(function () {

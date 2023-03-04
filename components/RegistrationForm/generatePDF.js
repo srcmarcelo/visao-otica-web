@@ -228,7 +228,7 @@ export default async function CreatePDF(values) {
     end: { x: 575, y: 502 },
     thickness: 1,
   });
-  page.drawText(`Instagram: ${values.instagram}`, {
+  page.drawText(`Instagram: ${values.instagram ? values.instagram : ''}`, {
     x: 20,
     y: 480,
     size: 14,
@@ -238,7 +238,7 @@ export default async function CreatePDF(values) {
     end: { x: 280, y: 477 },
     thickness: 1,
   });
-  page.drawText(`Facebook: ${values.facebook}`, {
+  page.drawText(`Facebook: ${values.facebook ? values.facebook : ''}`, {
     x: 285,
     y: 480,
     size: 14,
