@@ -33,7 +33,6 @@ export default function RegistrationForm() {
           marginBottom: '10px',
           width: '80%',
         }}
-        requiredMark='optional'
         rules={[
           {
             required: false, //change,
@@ -43,7 +42,7 @@ export default function RegistrationForm() {
       >
         <InputNumber
           style={{
-            width: 200,
+            width: 125,
           }}
           defaultValue='0'
           min='0'
@@ -67,10 +66,9 @@ export default function RegistrationForm() {
           marginBottom: '40px',
           width: '80%',
         }}
-        requiredMark='optional'
         rules={[
           {
-            required: false, //change,
+            required: false,
             message: 'Campo obrigatório!',
           },
         ]}
@@ -87,7 +85,7 @@ export default function RegistrationForm() {
       requiredMark='optional'
       rules={[
         {
-          required: false, //change
+          required: true,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -95,11 +93,11 @@ export default function RegistrationForm() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: '40px',
-        width: '80%',
+        margin: '15px 10px',
+        width: '100%',
       }}
     >
-      <DatePicker style={{ width: '300px' }} placeholder='Selecione uma data' />
+      <DatePicker style={{ width: '250px' }} placeholder='Selecione uma data' />
     </Form.Item>
   );
 
@@ -116,7 +114,7 @@ export default function RegistrationForm() {
       requiredMark='optional'
       rules={[
         {
-          required: false, //change
+          required: true,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -149,7 +147,7 @@ export default function RegistrationForm() {
     </Form.Item>
   );
 
-  const RenderItem = ({ label, name }) => (
+  const RenderItem = ({ label, name, optional }) => (
     <Form.Item
       label={label}
       name={name}
@@ -157,18 +155,18 @@ export default function RegistrationForm() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: '40px',
-        width: '80%',
+        margin: '15px 10px',
+        width: '100%',
       }}
-      requiredMark='optional'
+      requiredMark={optional ? '' : 'optional'}
       rules={[
         {
-          required: false, //change,
+          required: !optional,
           message: 'Campo obrigatório!',
         },
       ]}
     >
-      <Input style={{ width: '300px' }} />
+      <Input style={{ width: '250px' }} />
     </Form.Item>
   );
 
@@ -184,74 +182,136 @@ export default function RegistrationForm() {
         flexDirection: 'column',
       }}
     >
-      <div>INFORMAÇÕES GERAIS</div>
-      <RenderItem label='Código' name='code' />
-      <RenderItem label='Vendedora' name='seller' />
-      <RenderDateItem label='Data da compra' name='date' />
-      <RenderRadioGroupItem
-        name='store'
-        items={['Loja 1', 'Loja 2']}
-      />
-
-      <div>DADOS DO CLIENTE</div>
-      <RenderItem label='Cliente' name='costumer' />
-      <RenderItem label='Endereço' name='address' />
-      <RenderItem label='Bairro' name='neighborhood' />
-      <RenderItem label='CEP' name='adress_code' />
-      <RenderItem label='Cidade' name='city' />
-      <RenderItem label='Estado' name='state' />
-      <RenderItem label='Ponto de referência' name='ref_site' />
-      <RenderItem label='Contato Fixo' name='telephone' />
-      <RenderItem label='Contato Móvel' name='cellphone' />
-      <RenderItem label='CPF' name='cpf' />
-      <RenderItem label='RG' name='rg' />
-      <RenderItem label='Orgão Expedidor' name='rg_deliver' />
-      <RenderDateItem label='Data de Expedição' name='rg_deliver_date' />
-      <RenderDateItem label='Data de Nascimento' name='birthday' />
-      <RenderItem label='Filiação' name='parents' />
-      <RenderItem label='Email' name='email' />
-      <RenderItem label='Instagram' name='instagram' />
-      <RenderItem label='Facebook' name='facebook' />
-
-      <div>GRAU DO CLIENTE</div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ margin: '20px' }}>
-          <div style={{ textAlign: 'center' }}>LONGE</div>
-          <RenderDecimalItem label='OD ESF.' name='away_od_esf' />
-          <RenderDecimalItem label='OD CIL.' name='away_od_cil' />
-          <RenderDecimalItem label='OD EIXO' name='away_od_x' />
-          <RenderDecimalItem label='ED ESF.' name='away_ed_esf' />
-          <RenderDecimalItem label='ED CIL.' name='away_ed_cil' />
-          <RenderDecimalItem label='ED EIXO' name='away_ed_x' />
+      <div
+        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <div>INFORMAÇÕES GERAIS</div>
+          <RenderItem label='Código' name='code' />
+          <RenderItem label='Vendedora' name='seller' />
+          <RenderDateItem label='Data da compra' name='date' />
+          <RenderRadioGroupItem name='store' items={['Loja 1', 'Loja 2']} />
         </div>
-        <div style={{ margin: '20px' }}>
-          <div style={{ textAlign: 'center' }}>PERTO</div>
-          <RenderDecimalItem label='OD ESF.' name='close_od_esf' />
-          <RenderDecimalItem label='OD CIL.' name='close_od_cil' />
-          <RenderDecimalItem label='OD EIXO' name='close_od_x' />
-          <RenderDecimalItem label='ED ESF.' name='close_ed_esf' />
-          <RenderDecimalItem label='ED CIL.' name='close_ed_cil' />
-          <RenderDecimalItem label='ED EIXO' name='close_ed_x' />
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <div>DADOS DO CLIENTE</div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <RenderItem label='Cliente' name='costumer' />
+              <RenderItem label='Endereço' name='address' />
+              <RenderItem label='Bairro' name='neighborhood' />
+              <RenderItem label='CEP' name='adress_code' />
+              <RenderItem label='Cidade' name='city' />
+              <RenderItem label='Estado' name='state' />
+              <RenderItem label='Ponto de referência' name='ref_site' />
+              <RenderItem label='Contato Fixo' name='telephone' />
+              <RenderItem label='Contato Móvel' name='cellphone' />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <RenderItem label='CPF' name='cpf' />
+              <RenderItem label='RG' name='rg' />
+              <RenderItem label='Orgão Expedidor' name='rg_deliver' />
+              <RenderDateItem
+                label='Data de Expedição'
+                name='rg_deliver_date'
+              />
+              <RenderDateItem label='Data de Nascimento' name='birthday' />
+              <RenderItem label='Filiação' name='parents' />
+              <RenderItem label='Email' name='email' />
+              <RenderItem label='Instagram' name='instagram' optional={true} />
+              <RenderItem label='Facebook' name='facebook' optional={true} />
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <div>GRAU DO CLIENTE</div>
+          <div style={{ display: 'flex' }}>
+            <div style={{ margin: '20px' }}>
+              <div style={{ textAlign: 'center' }}>LONGE</div>
+              <RenderDecimalItem label='OD ESF.' name='away_od_esf' />
+              <RenderDecimalItem label='OD CIL.' name='away_od_cil' />
+              <RenderDecimalItem label='OD EIXO' name='away_od_x' />
+              <RenderDecimalItem label='ED ESF.' name='away_ed_esf' />
+              <RenderDecimalItem label='ED CIL.' name='away_ed_cil' />
+              <RenderDecimalItem label='ED EIXO' name='away_ed_x' />
+            </div>
+            <div style={{ margin: '20px' }}>
+              <div style={{ textAlign: 'center' }}>PERTO</div>
+              <RenderDecimalItem label='OD ESF.' name='close_od_esf' />
+              <RenderDecimalItem label='OD CIL.' name='close_od_cil' />
+              <RenderDecimalItem label='OD EIXO' name='close_od_x' />
+              <RenderDecimalItem label='ED ESF.' name='close_ed_esf' />
+              <RenderDecimalItem label='ED CIL.' name='close_ed_cil' />
+              <RenderDecimalItem label='ED EIXO' name='close_ed_x' />
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <div>DADOS DA VENDA</div>
+          <RenderItem label='Valor' name='value' />
+          <RenderRadioGroupItem
+            label='Forma de pagamento'
+            name='payment'
+            items={['À vista', 'Cartão', 'Crediário']}
+          />
+          <RenderTextAreaItem
+            label='Informaçõe Adicionais'
+            name='more_information'
+          />
+          <RenderRadioGroupItem
+            name='first_time'
+            items={['Primeiro cliente', 'Indicação']}
+          />
+          {recommendation && (
+            <RenderItem label='Indicado por' name='recommended' />
+          )}
         </div>
       </div>
-
-      <RenderTextAreaItem
-        label='Informaçõe Adicionais'
-        name='more_information'
-      />
-      <RenderRadioGroupItem
-        name='first_time'
-        items={['Primeiro cliente', 'Indicação']}
-      />
-      {recommendation && <RenderItem label='Indicado por' name='recommended' />}
-
-      <div>DADOS DA VENDA</div>
-      <RenderItem label='Valor' name='value' />
-      <RenderRadioGroupItem
-        label='Forma de pagamento'
-        name='payment'
-        items={['À vista', 'Cartão', 'Crediário']}
-      />
 
       <Button htmlType='submit' type='primary'>
         Gerar Ficha
