@@ -459,19 +459,14 @@ export default async function CreatePDF(values) {
     size: 12,
   });
 
-  page.drawText('Informaçõe Adicionais:', {
+  page.drawText(`Adição:   ${values.add ? 'NÃO' : 'SIM'}`, {
     x: 20,
-    y: 330,
+    y: 325,
     size: 14,
   });
-  page.drawText(`${values.more_information ? values.more_information : ''}`, {
-    x: 20,
-    y: 315,
-    size: 11,
-  });
   page.drawLine({
-    start: { x: 20, y: 312 },
-    end: { x: 575, y: 312 },
+    start: { x: 70, y: 322 },
+    end: { x: 118, y: 322 },
     thickness: 1,
   });
 
@@ -504,58 +499,84 @@ export default async function CreatePDF(values) {
   if(values.first_time === 1) {
     page.drawText(`Indicado por ${values.recommended}.`, {
       x: 20,
-      y: 215,
+      y: 220,
       size: 14,
     });
-  } else {
+  } else if (values.first_time === 0) {
     page.drawText(`Primeiro cliente.`, {
       x: 20,
-      y: 215,
+      y: 220,
       size: 14,
     });
   }
 
-  page.drawRectangle({
+  page.drawText('Informações Adicionais:', {
     x: 20,
-    y: 45,
-    width: 555,
-    height: 150,
-    borderWidth: 1,
-    color: rgb(1, 1, 1),
-    opacity: 0,
+    y: 195,
+    size: 14,
+  });
+  page.drawText(`${values.more_information ? values.more_information.slice(0, 75) : ''}`, {
+    x: 20,
+    y: 175,
+    size: 11,
+  });
+  page.drawLine({
+    start: { x: 20, y: 172 },
+    end: { x: 575, y: 172 },
+    thickness: 1,
+  });
+  page.drawText(`${values.more_information?.length > 75 ? values.more_information.slice(75, 150) : ''}`, {
+    x: 20,
+    y: 155,
+    size: 11,
+  });
+  page.drawLine({
+    start: { x: 20, y: 152 },
+    end: { x: 575, y: 152 },
+    thickness: 1,
+  });
+  page.drawText(`${values.more_information?.length > 150 ? values.more_information.slice(150) : ''}`, {
+    x: 20,
+    y: 135,
+    size: 11,
+  });
+  page.drawLine({
+    start: { x: 20, y: 132 },
+    end: { x: 575, y: 132 },
+    thickness: 1,
   });
 
   page.drawText('Ass. do cliente:', {
-    x: 12,
-    y: 25,
-    size: 12,
+    x: 20,
+    y: 100,
+    size: 13,
   });
   page.drawLine({
-    start: { x: 95, y: 22 },
-    end: { x: 235, y: 22 },
+    start: { x: 112, y: 97 },
+    end: { x: 575, y: 97 },
     thickness: 1,
   });
   page.drawText('Ass. da vendedora:', {
-    x: 240,
-    y: 25,
-    size: 12,
+    x: 20,
+    y: 65,
+    size: 13,
   });
   page.drawLine({
-    start: { x: 345, y: 22 },
-    end: { x: 485, y: 22 },
+    start: { x: 135, y: 63 },
+    end: { x: 575, y: 63 },
     thickness: 1,
   });
   page.drawText(
     `Data: ${moment().format('DD/MM/YYYY')}`,
     {
-      x: 490,
-      y: 25,
-      size: 12,
+      x: 20,
+      y: 30,
+      size: 13,
     }
   );
   page.drawLine({
-    start: { x: 521, y: 22 },
-    end: { x: 585, y: 22 },
+    start: { x: 53, y: 27 },
+    end: { x: 130, y: 27 },
     thickness: 1,
   });
 

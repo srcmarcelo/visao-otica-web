@@ -37,7 +37,7 @@ export default function RegistrationForm() {
         }}
         rules={[
           {
-            required: false, //change,
+            required: false,
             message: 'Campo obrigatório!',
           },
         ]}
@@ -47,8 +47,6 @@ export default function RegistrationForm() {
             width: 125,
           }}
           defaultValue='0'
-          min='0'
-          max='20'
           step='0.01'
           stringMode
         />
@@ -75,7 +73,7 @@ export default function RegistrationForm() {
           },
         ]}
       >
-        <TextArea rows={4} maxLength={75} />
+        <TextArea rows={4} maxLength={225} />
       </Form.Item>
     );
   };
@@ -109,14 +107,14 @@ export default function RegistrationForm() {
     </Radio>
   );
 
-  const RenderRadioGroupItem = ({ label, name, items }) => (
+  const RenderRadioGroupItem = ({ label, name, items, optional }) => (
     <Form.Item
       label={label}
       name={name}
-      requiredMark='optional'
+      requiredMark={optional ? '' : 'optional'}
       rules={[
         {
-          required: true,
+          required: !optional,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -285,6 +283,11 @@ export default function RegistrationForm() {
               <RenderDecimalItem label='ED EIXO' name='close_ed_x' />
             </div>
           </div>
+          <RenderRadioGroupItem
+            label='Adição'
+            name='add'
+            items={['Sim', 'Não']}
+          />
         </div>
 
         <div
@@ -307,6 +310,7 @@ export default function RegistrationForm() {
           />
           <RenderRadioGroupItem
             name='first_time'
+            optional={true}
             items={['Primeiro cliente', 'Indicação']}
           />
           {recommendation && (
