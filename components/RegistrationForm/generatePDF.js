@@ -338,17 +338,17 @@ export default async function CreatePDF(values) {
     y: 395,
     size: 12,
   });
-  page.drawText(values.away_ed_esf ? values.away_ed_esf : '0.00', {
+  page.drawText(values.away_oe_esf ? values.away_oe_esf : '0.00', {
     x: 142,
     y: 365,
     size: 12,
   });
-  page.drawText(values.away_ed_cil ? values.away_ed_cil : '0.00', {
+  page.drawText(values.away_oe_cil ? values.away_oe_cil : '0.00', {
     x: 192,
     y: 365,
     size: 12,
   });
-  page.drawText(values.away_ed_x ? values.away_ed_x : '0.00', {
+  page.drawText(values.away_oe_x ? values.away_oe_x : '0.00', {
     x: 242,
     y: 365,
     size: 12,
@@ -443,30 +443,30 @@ export default async function CreatePDF(values) {
     y: 395,
     size: 12,
   });
-  page.drawText(values.close_ed_esf ? values.close_ed_esf : '0.00', {
+  page.drawText(values.close_oe_esf ? values.close_oe_esf : '0.00', {
     x: 377,
     y: 365,
     size: 12,
   });
-  page.drawText(values.close_ed_cil ? values.close_ed_cil : '0.00', {
+  page.drawText(values.close_oe_cil ? values.close_oe_cil : '0.00', {
     x: 427,
     y: 365,
     size: 12,
   });
-  page.drawText(values.close_ed_x ? values.close_ed_x : '0.00', {
+  page.drawText(values.close_oe_x ? values.close_oe_x : '0.00', {
     x: 477,
     y: 365,
     size: 12,
   });
 
-  page.drawText(`Adição:   ${values.add ? 'NÃO' : 'SIM'}`, {
+  page.drawText(`Adição:   ${values.add ? 'NÃO' : values.add_value}`, {
     x: 20,
     y: 325,
     size: 14,
   });
   page.drawLine({
     start: { x: 70, y: 322 },
-    end: { x: 118, y: 322 },
+    end: { x: 200, y: 322 },
     thickness: 1,
   });
 
@@ -475,7 +475,7 @@ export default async function CreatePDF(values) {
     y: 285,
     size: 14,
   });
-  page.drawText(`Valor: ${values.value}`, {
+  page.drawText(`Valor: R$ ${parseFloat(values.value).toFixed(2)}`, {
     x: 20,
     y: 265,
     size: 14,

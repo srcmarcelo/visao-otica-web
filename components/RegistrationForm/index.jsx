@@ -22,6 +22,39 @@ export default function RegistrationForm() {
   };
 
   const [recommendation, setRecommendation] = useState(false);
+  const [add, setAdd] = useState(false);
+
+  const RenderValueInput = ({ label, name }) => {
+    return (
+      <Form.Item
+        label={label}
+        name={name}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: '10px',
+          width: '80%',
+        }}
+        requiredMark='optional'
+        rules={[
+          {
+            required: true,
+            message: 'Campo obrigatório!',
+          },
+        ]}
+      >
+        <InputNumber
+          style={{
+            width: 250,
+          }}
+          step='0.01'
+          prefix='R$'
+          stringMode
+        />
+      </Form.Item>
+    );
+  };
 
   const RenderDecimalItem = ({ label, name }) => {
     return (
@@ -42,14 +75,7 @@ export default function RegistrationForm() {
           },
         ]}
       >
-        <InputNumber
-          style={{
-            width: 125,
-          }}
-          defaultValue='0'
-          step='0.01'
-          stringMode
-        />
+        <Input style={{ width: '125px' }} />
       </Form.Item>
     );
   };
@@ -133,6 +159,8 @@ export default function RegistrationForm() {
         onChange={(e) => {
           if (name === 'first_time') {
             setRecommendation(e.target.value === 1);
+          } else if (name === 'add') {
+            setAdd(e.target.value === 0);
           }
         }}
       >
@@ -269,18 +297,18 @@ export default function RegistrationForm() {
               <RenderDecimalItem label='OD ESF.' name='away_od_esf' />
               <RenderDecimalItem label='OD CIL.' name='away_od_cil' />
               <RenderDecimalItem label='OD EIXO' name='away_od_x' />
-              <RenderDecimalItem label='ED ESF.' name='away_ed_esf' />
-              <RenderDecimalItem label='ED CIL.' name='away_ed_cil' />
-              <RenderDecimalItem label='ED EIXO' name='away_ed_x' />
+              <RenderDecimalItem label='OE ESF.' name='away_oe_esf' />
+              <RenderDecimalItem label='OE CIL.' name='away_oe_cil' />
+              <RenderDecimalItem label='OE EIXO' name='away_oe_x' />
             </div>
             <div style={{ margin: '20px' }}>
               <div style={{ textAlign: 'center' }}>PERTO</div>
               <RenderDecimalItem label='OD ESF.' name='close_od_esf' />
               <RenderDecimalItem label='OD CIL.' name='close_od_cil' />
               <RenderDecimalItem label='OD EIXO' name='close_od_x' />
-              <RenderDecimalItem label='ED ESF.' name='close_ed_esf' />
-              <RenderDecimalItem label='ED CIL.' name='close_ed_cil' />
-              <RenderDecimalItem label='ED EIXO' name='close_ed_x' />
+              <RenderDecimalItem label='OE ESF.' name='close_oe_esf' />
+              <RenderDecimalItem label='OE CIL.' name='close_oe_cil' />
+              <RenderDecimalItem label='OE EIXO' name='close_oe_x' />
             </div>
           </div>
           <RenderRadioGroupItem
@@ -288,6 +316,7 @@ export default function RegistrationForm() {
             name='add'
             items={['Sim', 'Não']}
           />
+          {add && <RenderItem label='Valor da adição' name='add_value' />}
         </div>
 
         <div
@@ -298,7 +327,7 @@ export default function RegistrationForm() {
           }}
         >
           <div>DADOS DA VENDA</div>
-          <RenderItem label='Valor' name='value' />
+          <RenderValueInput label='Valor' name='value' />
           <RenderRadioGroupItem
             label='Forma de pagamento'
             name='payment'
