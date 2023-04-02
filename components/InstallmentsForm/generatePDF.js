@@ -151,7 +151,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95,
         y: paddingLeft + 5 + 98,
         size: 10,
@@ -282,7 +282,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95,
         y: paddingLeft + 5 + 98 + height / 2,
         size: 10,
@@ -436,7 +436,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95,
         y: paddingLeft + 5 + 98 + height,
         size: 10,
@@ -567,7 +567,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95,
         y: paddingLeft + 5 + 98 + height / 2 + height,
         size: 10,
@@ -721,7 +721,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width,
         y: paddingLeft + 5 + 98,
         size: 10,
@@ -852,7 +852,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width,
         y: paddingLeft + 5 + 98 + height / 2,
         size: 10,
@@ -1009,7 +1009,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width,
         y: paddingLeft + 5 + 98 + height,
         size: 10,
@@ -1176,7 +1176,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width,
         y: paddingLeft + 5 + 98 + height / 2 + height,
         size: 10,
@@ -1336,7 +1336,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width * 2,
         y: paddingLeft + 5 + 98,
         size: 10,
@@ -1473,7 +1473,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width * 2,
         y: paddingLeft + 5 + 98 + height / 2,
         size: 10,
@@ -1636,7 +1636,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width * 2,
         y: paddingLeft + 5 + 98 + height,
         size: 10,
@@ -1803,7 +1803,7 @@ export default async function CreatePDF(values) {
         thickness: 1,
         rotate: degrees(90),
       });
-      page.drawText(`Total: R$ ${parseFloat(values.total).toFixed(2)}`, {
+      page.drawText(`Total:`, {
         x: 70 + 95 + width * 2,
         y: paddingLeft + 5 + 98 + height / 2 + height,
         size: 10,

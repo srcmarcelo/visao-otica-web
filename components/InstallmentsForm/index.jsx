@@ -180,7 +180,7 @@ export default function InstallmentsForm() {
       }}
     >
       <div
-        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
         <RenderItem label='Código' name='code' />
         <RenderItem label='Cliente' name='costumer' />
@@ -190,7 +190,6 @@ export default function InstallmentsForm() {
           label='Quantidade de parcelas:'
           name='installments'
         />
-        <RenderValueInput label='Total' name='total' />
         <RenderRadioGroupItem name='store' items={['Loja 1', 'Loja 2']} />
       </div>
 
