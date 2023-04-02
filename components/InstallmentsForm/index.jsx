@@ -180,7 +180,7 @@ export default function InstallmentsForm() {
       }}
     >
       <div
-        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
       >
         <RenderItem label='Código' name='code' />
         <RenderItem label='Cliente' name='costumer' />
