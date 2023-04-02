@@ -183,7 +183,7 @@ export default function InstallmentsForm() {
       <div
         style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
       >
-        <Image src='/logo-image.png' width={250} height={125} alt='Logo' />
+        <Image src='/logo-image.png' width={300} height={150} alt='Logo' />
         <RenderItem label='Código' name='code' />
         <RenderItem label='Cliente' name='costumer' />
         <RenderDateItem label='Data do primeiro vencimento' name='date' />
@@ -195,7 +195,7 @@ export default function InstallmentsForm() {
         <RenderRadioGroupItem name='store' items={['Loja 1', 'Loja 2']} />
       </div>
 
-      <Button htmlType='submit' type='primary'>
+      <Button htmlType='submit' type='primary' style={{marginBottom: '100px'}}>
         Gerar Parcelas
       </Button>
     </Form>
