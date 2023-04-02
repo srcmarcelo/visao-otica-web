@@ -1,4 +1,5 @@
 import { Button, DatePicker, Form, Input, InputNumber, Radio } from 'antd';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import CreatePDF from './generatePDF';
 
@@ -180,8 +181,9 @@ export default function InstallmentsForm() {
       }}
     >
       <div
-        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
       >
+        <Image src='/logo-image.png' width={250} height={125} alt='Logo' />
         <RenderItem label='Código' name='code' />
         <RenderItem label='Cliente' name='costumer' />
         <RenderDateItem label='Data do primeiro vencimento' name='date' />
