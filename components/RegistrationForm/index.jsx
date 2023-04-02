@@ -104,14 +104,14 @@ export default function RegistrationForm() {
     );
   };
 
-  const RenderDateItem = ({ label, name }) => (
+  const RenderDateItem = ({ label, name, optional }) => (
     <Form.Item
       label={label}
       name={name}
-      requiredMark='optional'
+      requiredMark={optional ? '' : 'optional'}
       rules={[
         {
-          required: true,
+          required: !optional,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -274,7 +274,7 @@ export default function RegistrationForm() {
                 label='Data de Expedição'
                 name='rg_deliver_date'
               />
-              <RenderDateItem label='Data de Nascimento' name='birthday' />
+              <RenderDateItem label='Data de Nascimento' name='birthday' optional={true} />
               <RenderItem label='Filiação' name='parents' />
               <RenderItem label='Email' name='email' />
               <RenderItem label='Instagram' name='instagram' optional={true} />
