@@ -42,10 +42,16 @@ export default async function CreatePDF(values) {
     y: 800,
     size: 18,
   });
-  page.drawText(`Código - ${values.code}`, {
+  page.drawText('Código - ', {
     x: 425,
     y: 780,
     size: 16,
+  });
+  page.drawText(` ${values.code}`, {
+    x: 485,
+    y: 780,
+    size: 16,
+    color: rgb(0.95, 0.1, 0.1),
   });
   page.drawText(`Vendedora: ${values.seller}`, {
     x: 400,
@@ -57,10 +63,16 @@ export default async function CreatePDF(values) {
     y: 730,
     size: 13,
   });
-  page.drawText(`Cliente: ${values.costumer}`, {
+  page.drawText('Cliente:', {
     x: 20,
     y: 705,
     size: 14,
+  });
+  page.drawText(`${values.costumer}`, {
+    x: 72,
+    y: 705,
+    size: 14,
+    color: rgb(0.95, 0.1, 0.1),
   });
   page.drawLine({
     start: { x: 70, y: 702 },
@@ -324,32 +336,32 @@ export default async function CreatePDF(values) {
   });
 
   page.drawText(values.away_od_esf ? values.away_od_esf : '0.00', {
-    x: 142,
+    x: 135,
     y: 395,
     size: 12,
   });
   page.drawText(values.away_od_cil ? values.away_od_cil : '0.00', {
-    x: 192,
+    x: 185,
     y: 395,
     size: 12,
   });
   page.drawText(values.away_od_x ? values.away_od_x : '0.00', {
-    x: 242,
+    x: 235,
     y: 395,
     size: 12,
   });
   page.drawText(values.away_oe_esf ? values.away_oe_esf : '0.00', {
-    x: 142,
+    x: 135,
     y: 365,
     size: 12,
   });
   page.drawText(values.away_oe_cil ? values.away_oe_cil : '0.00', {
-    x: 192,
+    x: 185,
     y: 365,
     size: 12,
   });
   page.drawText(values.away_oe_x ? values.away_oe_x : '0.00', {
-    x: 242,
+    x: 235,
     y: 365,
     size: 12,
   });
@@ -429,32 +441,32 @@ export default async function CreatePDF(values) {
   });
 
   page.drawText(values.close_od_esf ? values.close_od_esf : '0.00', {
-    x: 377,
+    x: 370,
     y: 395,
     size: 12,
   });
   page.drawText(values.close_od_cil ? values.close_od_cil : '0.00', {
-    x: 427,
+    x: 420,
     y: 395,
     size: 12,
   });
   page.drawText(values.close_od_x ? values.close_od_x : '0.00', {
-    x: 477,
+    x: 470,
     y: 395,
     size: 12,
   });
   page.drawText(values.close_oe_esf ? values.close_oe_esf : '0.00', {
-    x: 377,
+    x: 370,
     y: 365,
     size: 12,
   });
   page.drawText(values.close_oe_cil ? values.close_oe_cil : '0.00', {
-    x: 427,
+    x: 420,
     y: 365,
     size: 12,
   });
   page.drawText(values.close_oe_x ? values.close_oe_x : '0.00', {
-    x: 477,
+    x: 470,
     y: 365,
     size: 12,
   });
@@ -496,7 +508,7 @@ export default async function CreatePDF(values) {
     thickness: 1,
   });
 
-  if(values.first_time === 1) {
+  if (values.first_time === 1) {
     page.drawText(`Indicado por ${values.recommended}.`, {
       x: 20,
       y: 220,
@@ -515,31 +527,48 @@ export default async function CreatePDF(values) {
     y: 195,
     size: 14,
   });
-  page.drawText(`${values.more_information ? values.more_information.slice(0, 75) : ''}`, {
-    x: 20,
-    y: 175,
-    size: 11,
-  });
+  page.drawText(
+    `${values.more_information ? values.more_information.slice(0, 75) : ''}`,
+    {
+      x: 20,
+      y: 175,
+      size: 11,
+    }
+  );
   page.drawLine({
     start: { x: 20, y: 172 },
     end: { x: 575, y: 172 },
     thickness: 1,
   });
-  page.drawText(`${values.more_information?.length > 75 ? values.more_information.slice(75, 150) : ''}`, {
-    x: 20,
-    y: 155,
-    size: 11,
-  });
+  page.drawText(
+    `${
+      values.more_information?.length > 75
+        ? values.more_information.slice(75, 150)
+        : ''
+    }`,
+    {
+      x: 20,
+      y: 155,
+      size: 11,
+    }
+  );
   page.drawLine({
     start: { x: 20, y: 152 },
     end: { x: 575, y: 152 },
     thickness: 1,
   });
-  page.drawText(`${values.more_information?.length > 150 ? values.more_information.slice(150) : ''}`, {
-    x: 20,
-    y: 135,
-    size: 11,
-  });
+  page.drawText(
+    `${
+      values.more_information?.length > 150
+        ? values.more_information.slice(150)
+        : ''
+    }`,
+    {
+      x: 20,
+      y: 135,
+      size: 11,
+    }
+  );
   page.drawLine({
     start: { x: 20, y: 132 },
     end: { x: 575, y: 132 },
@@ -566,14 +595,11 @@ export default async function CreatePDF(values) {
     end: { x: 575, y: 63 },
     thickness: 1,
   });
-  page.drawText(
-    `Data: ${moment().format('DD/MM/YYYY')}`,
-    {
-      x: 20,
-      y: 30,
-      size: 13,
-    }
-  );
+  page.drawText(`Data: ${moment().format('DD/MM/YYYY')}`, {
+    x: 20,
+    y: 30,
+    size: 13,
+  });
   page.drawLine({
     start: { x: 53, y: 27 },
     end: { x: 130, y: 27 },

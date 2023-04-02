@@ -10,7 +10,7 @@ export default function InstallmentsForm() {
     const urlDownload = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = urlDownload;
-    a.download = `parcelas.pdf`;
+    a.download = `parcelas_${values.code}.pdf`;
     a.click();
 
     setTimeout(function () {
@@ -33,8 +33,7 @@ export default function InstallmentsForm() {
         requiredMark='optional'
         rules={[
           {
-            // required: true,
-            required: false,
+            required: true,
             message: 'Campo obrigatório!',
           },
         ]}
@@ -58,8 +57,7 @@ export default function InstallmentsForm() {
       requiredMark='optional'
       rules={[
         {
-          // required: true,
-          required: false,
+          required: true,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -81,15 +79,14 @@ export default function InstallmentsForm() {
     </Radio>
   );
 
-  const RenderRadioGroupItem = ({ label, name, items, optional }) => (
+  const RenderRadioGroupItem = ({ label, name, items }) => (
     <Form.Item
       label={label}
       name={name}
       requiredMark='optional'
       rules={[
         {
-          // required: true,
-          required: false,
+          required: true,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -110,7 +107,7 @@ export default function InstallmentsForm() {
           <RenderRadio
             key={`${label}_${item}_${index}`}
             label={item}
-            value={index}
+            value={index + 1}
           />
         ))}
       </Radio.Group>
@@ -132,8 +129,7 @@ export default function InstallmentsForm() {
         requiredMark='optional'
         rules={[
           {
-            // required: true,
-            required: false,
+            required: true,
             message: 'Campo obrigatório!',
           },
         ]}
@@ -142,6 +138,7 @@ export default function InstallmentsForm() {
           style={{
             width: 250,
           }}
+          min={1}
         />
       </Form.Item>
     );
@@ -161,8 +158,7 @@ export default function InstallmentsForm() {
       requiredMark='optional'
       rules={[
         {
-          // required: true,
-          required: false,
+          required: true,
           message: 'Campo obrigatório!',
         },
       ]}
@@ -194,7 +190,6 @@ export default function InstallmentsForm() {
           label='Quantidade de parcelas:'
           name='installments'
         />
-        <RenderItem label='Juros' name='fee' />
         <RenderValueInput label='Total' name='total' />
         <RenderRadioGroupItem name='store' items={['Loja 1', 'Loja 2']} />
       </div>
